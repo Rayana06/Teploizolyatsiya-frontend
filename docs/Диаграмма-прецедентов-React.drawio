@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxfile host="app.diagrams.net" modified="2026-11-25T00:00:00.000Z" agent="Codex" version="24.7.17">
+  <diagram id="teploshchit-react-use-cases" name="Кнопки и навигация">
+    <mxGraphModel dx="1200" dy="950" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1190" pageHeight="930" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="system" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="145" y="20" width="1000" height="890" as="geometry" />
+        </mxCell>
+        <mxCell id="system_title" value="React-приложение «Теплощит»" style="text;html=1;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=16;fontStyle=1;strokeColor=none;fillColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="420" y="9" width="430" height="27" as="geometry" />
+        </mxCell>
+        <mxCell id="guest_section" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="155" y="60" width="980" height="400" as="geometry" />
+        </mxCell>
+        <mxCell id="guest_notch" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="155" y="44" width="300" height="16" as="geometry" />
+        </mxCell>
+        <mxCell id="guest_title" value="Интерфейс гостя" style="text;html=1;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=16;fontStyle=1;strokeColor=none;fillColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="495" y="60" width="300" height="27" as="geometry" />
+        </mxCell>
+        <mxCell id="user_section" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="155" y="490" width="980" height="400" as="geometry" />
+        </mxCell>
+        <mxCell id="user_notch" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="155" y="474" width="300" height="16" as="geometry" />
+        </mxCell>
+        <mxCell id="user_title" value="Интерфейс пользователя" style="text;html=1;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=16;fontStyle=1;strokeColor=none;fillColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="480" y="490" width="330" height="27" as="geometry" />
+        </mxCell>
+        <mxCell id="guest_actor" value="Гость" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;fontFamily=Arial;fontSize=15;fontStyle=1;strokeColor=#000000;fillColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="20" y="145" width="85" height="105" as="geometry" />
+        </mxCell>
+        <mxCell id="user_actor" value="Пользователь" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;fontFamily=Arial;fontSize=15;fontStyle=1;strokeColor=#000000;fillColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="13" y="600" width="100" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="feed" value="Открыть ленту&lt;br&gt;«Лента»" style="ellipse;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=14;fontStyle=1;fillColor=#ffffff;strokeColor=#000000;strokeWidth=1;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="185" y="100" width="250" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="catalog" value="Открыть каталог&lt;br&gt;«Плитка»" style="ellipse;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=14;fontStyle=1;fillColor=#ffffff;strokeColor=#000000;strokeWidth=1;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="500" y="100" width="250" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="login_page" value="Открыть страницу входа&lt;br&gt;«Вход»" style="ellipse;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=14;fontStyle=1;fillColor=#ffffff;strokeColor=#000000;strokeWidth=1;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="815" y="100" width="260" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="next" value="Следующий материал&lt;br&gt;«Следующая»" style="ellipse;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=14;fontStyle=1;fillColor=#ffffff;strokeColor=#000000;strokeWidth=1;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="185" y="220" width="250" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="filter" value="Применить фильтр цены&lt;br&gt;«Подобрать»" style="ellipse;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=14;fontStyle=1;fillColor=#ffffff;strokeColor=#000000;strokeWidth=1;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="500" y="220" width="250" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="sign_in" value="Авторизоваться&lt;br&gt;«Войти»" style="ellipse;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=14;fontStyle=1;fillColor=#ffffff;strokeColor=#000000;strokeWidth=1;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="815" y="220" width="260" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="expand" value="Раскрыть описание&lt;br&gt;«Подробнее»" style="ellipse;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=14;fontStyle=1;fillColor=#ffffff;strokeColor=#000000;strokeWidth=1;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="185" y="340" width="250" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="details" value="Открыть карточку&lt;br&gt;«Подробнее»" style="ellipse;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=14;fontStyle=1;fillColor=#ffffff;strokeColor=#000000;strokeWidth=1;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="500" y="340" width="250" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="back" value="Вернуться назад&lt;br&gt;«Назад»" style="ellipse;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=14;fontStyle=1;fillColor=#ffffff;strokeColor=#000000;strokeWidth=1;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="815" y="340" width="260" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="add" value="Открыть добавление&lt;br&gt;«Добавление»" style="ellipse;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=14;fontStyle=1;fillColor=#ffffff;strokeColor=#000000;strokeWidth=1;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="185" y="535" width="250" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="continue" value="Перейти ко второму шагу&lt;br&gt;«Далее»" style="ellipse;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=14;fontStyle=1;fillColor=#ffffff;strokeColor=#000000;strokeWidth=1;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="500" y="535" width="250" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="publish" value="Опубликовать материал&lt;br&gt;«Опубликовать»" style="ellipse;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=14;fontStyle=1;fillColor=#ffffff;strokeColor=#000000;strokeWidth=1;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="815" y="535" width="260" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="file" value="Выбрать фото и видео&lt;br&gt;«Выберите файл»" style="ellipse;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=14;fontStyle=1;fillColor=#ffffff;strokeColor=#000000;strokeWidth=1;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="185" y="655" width="250" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="like" value="Поставить или снять лайк&lt;br&gt;кнопка лайка" style="ellipse;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=14;fontStyle=1;fillColor=#ffffff;strokeColor=#000000;strokeWidth=1;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="500" y="655" width="250" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="delete" value="Удалить свой материал&lt;br&gt;кнопка корзины" style="ellipse;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=14;fontStyle=1;fillColor=#ffffff;strokeColor=#000000;strokeWidth=1;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="815" y="655" width="260" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="logout" value="Выйти из приложения&lt;br&gt;«Выход»" style="ellipse;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=14;fontStyle=1;fillColor=#ffffff;strokeColor=#000000;strokeWidth=1;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="185" y="780" width="250" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="assoc_guest_actor_feed" value="" style="edgeStyle=none;html=1;rounded=0;strokeColor=#000000;strokeWidth=1;dashed=0;dashPattern=4 4;endArrow=none;endFill=0;startArrow=none;fontFamily=Arial;fontSize=13;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="guest_actor" target="feed">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="assoc_guest_actor_catalog" value="" style="edgeStyle=none;html=1;rounded=0;strokeColor=#000000;strokeWidth=1;dashed=0;dashPattern=4 4;endArrow=none;endFill=0;startArrow=none;fontFamily=Arial;fontSize=13;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="guest_actor" target="catalog">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="assoc_guest_actor_login_page" value="" style="edgeStyle=none;html=1;rounded=0;strokeColor=#000000;strokeWidth=1;dashed=0;dashPattern=4 4;endArrow=none;endFill=0;startArrow=none;fontFamily=Arial;fontSize=13;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="guest_actor" target="login_page">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="assoc_user_actor_add" value="" style="edgeStyle=none;html=1;rounded=0;strokeColor=#000000;strokeWidth=1;dashed=0;dashPattern=4 4;endArrow=none;endFill=0;startArrow=none;fontFamily=Arial;fontSize=13;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="user_actor" target="add">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="assoc_user_actor_like" value="" style="edgeStyle=none;html=1;rounded=0;strokeColor=#000000;strokeWidth=1;dashed=0;dashPattern=4 4;endArrow=none;endFill=0;startArrow=none;fontFamily=Arial;fontSize=13;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="user_actor" target="like">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="assoc_user_actor_delete" value="" style="edgeStyle=none;html=1;rounded=0;strokeColor=#000000;strokeWidth=1;dashed=0;dashPattern=4 4;endArrow=none;endFill=0;startArrow=none;fontFamily=Arial;fontSize=13;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="user_actor" target="delete">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="assoc_user_actor_logout" value="" style="edgeStyle=none;html=1;rounded=0;strokeColor=#000000;strokeWidth=1;dashed=0;dashPattern=4 4;endArrow=none;endFill=0;startArrow=none;fontFamily=Arial;fontSize=13;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="user_actor" target="logout">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="generalization" value="" style="edgeStyle=none;html=1;rounded=0;strokeColor=#000000;strokeWidth=1;dashed=0;dashPattern=4 4;endArrow=open;endFill=0;startArrow=none;fontFamily=Arial;fontSize=13;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="user_actor" target="guest_actor">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rel_next_feed" value="«extend»" style="edgeStyle=none;html=1;rounded=0;strokeColor=#000000;strokeWidth=1;dashed=1;dashPattern=4 4;endArrow=open;endFill=0;startArrow=none;fontFamily=Arial;fontSize=13;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="next" target="feed">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rel_filter_catalog" value="«extend»" style="edgeStyle=none;html=1;rounded=0;strokeColor=#000000;strokeWidth=1;dashed=1;dashPattern=4 4;endArrow=open;endFill=0;startArrow=none;fontFamily=Arial;fontSize=13;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="filter" target="catalog">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rel_sign_in_login_page" value="«extend»" style="edgeStyle=none;html=1;rounded=0;strokeColor=#000000;strokeWidth=1;dashed=1;dashPattern=4 4;endArrow=open;endFill=0;startArrow=none;fontFamily=Arial;fontSize=13;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="sign_in" target="login_page">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rel_expand_feed" value="«extend»" style="edgeStyle=none;html=1;rounded=0;strokeColor=#000000;strokeWidth=1;dashed=1;dashPattern=4 4;endArrow=open;endFill=0;startArrow=none;fontFamily=Arial;fontSize=13;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="expand" target="feed">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rel_details_catalog" value="«extend»" style="edgeStyle=none;html=1;rounded=0;strokeColor=#000000;strokeWidth=1;dashed=1;dashPattern=4 4;endArrow=open;endFill=0;startArrow=none;fontFamily=Arial;fontSize=13;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="details" target="catalog">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rel_back_details" value="«extend»" style="edgeStyle=none;html=1;rounded=0;strokeColor=#000000;strokeWidth=1;dashed=1;dashPattern=4 4;endArrow=open;endFill=0;startArrow=none;fontFamily=Arial;fontSize=13;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="back" target="details">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rel_continue_add" value="«extend»" style="edgeStyle=none;html=1;rounded=0;strokeColor=#000000;strokeWidth=1;dashed=1;dashPattern=4 4;endArrow=open;endFill=0;startArrow=none;fontFamily=Arial;fontSize=13;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="continue" target="add">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rel_publish_continue" value="«extend»" style="edgeStyle=none;html=1;rounded=0;strokeColor=#000000;strokeWidth=1;dashed=1;dashPattern=4 4;endArrow=open;endFill=0;startArrow=none;fontFamily=Arial;fontSize=13;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="publish" target="continue">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rel_file_add" value="«extend»" style="edgeStyle=none;html=1;rounded=0;strokeColor=#000000;strokeWidth=1;dashed=1;dashPattern=4 4;endArrow=open;endFill=0;startArrow=none;fontFamily=Arial;fontSize=13;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="file" target="add">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

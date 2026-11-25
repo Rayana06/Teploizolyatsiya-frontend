@@ -1,4 +1,4 @@
-export type MaterialType = 'Минеральная вата' | 'Пенополистирол' | 'PIR-плита'
+export type MaterialType = string
 
 export interface InsulationMaterial {
   id: number
@@ -14,6 +14,9 @@ export interface InsulationMaterial {
   feedImageUrl: string | null
   videoUrl: string | null
   likeCount: number
+  isCreator?: 0 | 1
+  liked?: 0 | 1
+  source?: 'backend' | 'mock'
 }
 
 export type MaterialSort = 'newest' | 'name' | 'price-asc' | 'price-desc'

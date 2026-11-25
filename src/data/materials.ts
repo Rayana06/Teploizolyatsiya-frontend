@@ -1,6 +1,6 @@
 import type { InsulationMaterial } from '../types/material'
 
-// Единственный источник содержимого карточек в ЛР5 — локальная mock-коллекция.
+// Fallback доступен только гостю, когда backend недоступен.
 export const materialsMock: InsulationMaterial[] = [
   {
     id: 1,
@@ -16,6 +16,7 @@ export const materialsMock: InsulationMaterial[] = [
     feedImageUrl: '/products/technolight-optima-50-portrait.png',
     videoUrl: '/products/technolight-optima-50.mp4',
     likeCount: 24,
+    source: 'mock',
   },
   {
     id: 2,
@@ -31,6 +32,7 @@ export const materialsMock: InsulationMaterial[] = [
     feedImageUrl: '/products/technolight-extra-50-portrait.png',
     videoUrl: null,
     likeCount: 15,
+    source: 'mock',
   },
   {
     id: 3,
@@ -46,6 +48,7 @@ export const materialsMock: InsulationMaterial[] = [
     feedImageUrl: '/products/rafinad-therm-50-portrait.png',
     videoUrl: '/products/rafinad-therm-50.mp4',
     likeCount: 12,
+    source: 'mock',
   },
   {
     id: 4,
@@ -61,6 +64,7 @@ export const materialsMock: InsulationMaterial[] = [
     feedImageUrl: '/products/rafinad-facade-50-portrait.png',
     videoUrl: '/products/rafinad-facade-50.mp4',
     likeCount: 9,
+    source: 'mock',
   },
   {
     id: 5,
@@ -76,6 +80,7 @@ export const materialsMock: InsulationMaterial[] = [
     feedImageUrl: '/products/logicpir-banya-50-portrait.png',
     videoUrl: '/products/logicpir-banya-50.mp4',
     likeCount: 18,
+    source: 'mock',
   },
   {
     id: 6,
@@ -91,5 +96,6 @@ export const materialsMock: InsulationMaterial[] = [
     feedImageUrl: '/products/logicpir-skhm-50-portrait.png',
     videoUrl: null,
     likeCount: 21,
+    source: 'mock',
   },
 ]

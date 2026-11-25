@@ -2,3 +2,5 @@ node_modules
 dist
 .DS_Store
 *.local
+report-assets/*
+!report-assets/use-case-diagram.png

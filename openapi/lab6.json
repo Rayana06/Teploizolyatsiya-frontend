@@ -1,0 +1,130 @@
+{
+  "openapi": "3.0.0",
+  "info": { "title": "Теплощит API — лабораторная №6", "version": "6.0" },
+  "servers": [{ "url": "/api" }],
+  "paths": {
+    "/insulation-materials": {
+      "get": {
+        "operationId": "getInsulationMaterials",
+        "parameters": [
+          { "in": "query", "name": "maxThicknessMm", "schema": { "type": "integer", "minimum": 1, "maximum": 1000 } },
+          { "in": "query", "name": "insulationType", "schema": { "type": "string" } },
+          { "in": "query", "name": "search", "schema": { "type": "string" } },
+          { "in": "query", "name": "maxPriceRubM2", "schema": { "type": "number" } },
+          { "in": "query", "name": "view", "schema": { "type": "string", "enum": ["rich"] } }
+        ],
+        "responses": { "200": { "description": "Каталог", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/MaterialListResponse" } } } } }
+      },
+      "post": {
+        "operationId": "createInsulationMaterial",
+        "security": [{ "sessionId": [] }],
+        "requestBody": { "required": true, "content": { "multipart/form-data": { "schema": { "$ref": "#/components/schemas/CreateMaterial" } } } },
+        "responses": { "201": { "description": "Черновик создан", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/MaterialDetails" } } } } }
+      }
+    },
+    "/insulation-materials/draft": {
+      "get": { "operationId": "getMyInsulationMaterialDraft", "responses": { "200": { "description": "Свой черновик или null", "content": { "application/json": { "schema": { "allOf": [ { "$ref": "#/components/schemas/MaterialDetails" } ], "nullable": true } } } } } }
+    },
+    "/insulation-materials/draft/start": {
+      "post": {
+        "operationId": "startInsulationMaterialDraft", "security": [{ "sessionId": [] }],
+        "requestBody": { "required": true, "content": { "multipart/form-data": { "schema": { "$ref": "#/components/schemas/StartDraft" } } } },
+        "responses": { "201": { "description": "Черновик создан", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/MaterialDetails" } } } } }
+      }
+    },
+    "/insulation-materials/draft/{id}": {
+      "patch": {
+        "operationId": "fillInsulationMaterialDraft", "security": [{ "sessionId": [] }],
+        "parameters": [{ "in": "path", "name": "id", "required": true, "schema": { "type": "integer" } }],
+        "requestBody": { "required": true, "content": { "application/json": { "schema": { "$ref": "#/components/schemas/FillDraft" } } } },
+        "responses": { "200": { "description": "Черновик заполнен", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/MaterialDetails" } } } } }
+      }
+    },
+    "/insulation-materials/{id}/publish": {
+      "put": {
+        "operationId": "publishInsulationMaterial", "security": [{ "sessionId": [] }],
+        "parameters": [{ "in": "path", "name": "id", "required": true, "schema": { "type": "integer" } }],
+        "responses": { "200": { "description": "Материал опубликован", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/MaterialDetails" } } } } }
+      }
+    },
+    "/insulation-materials/feed": {
+      "get": { "operationId": "getFirstFeedMaterial", "parameters": [{ "in": "query", "name": "view", "schema": { "type": "string", "enum": ["rich"] } }], "responses": { "200": { "description": "Первая услуга", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/FeedMaterial" } } } } } }
+    },
+    "/insulation-materials/feed/{id}": {
+      "get": {
+        "operationId": "getNextFeedMaterial",
+        "parameters": [
+          { "in": "path", "name": "id", "required": true, "schema": { "type": "integer" } },
+          { "in": "query", "name": "next", "required": true, "schema": { "type": "string", "enum": ["true"] } },
+          { "in": "query", "name": "view", "schema": { "type": "string", "enum": ["rich"] } }
+        ],
+        "responses": { "200": { "description": "Следующая услуга", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/FeedMaterial" } } } } }
+      }
+    },
+    "/insulation-materials/{id}": {
+      "delete": {
+        "operationId": "deleteInsulationMaterial",
+        "security": [{ "sessionId": [] }],
+        "parameters": [{ "in": "path", "name": "id", "required": true, "schema": { "type": "integer" } }],
+        "responses": { "204": { "description": "Услуга удалена" } }
+      }
+    },
+    "/insulation-materials/{id}/like": {
+      "post": {
+        "operationId": "setInsulationMaterialLike",
+        "security": [{ "sessionId": [] }],
+        "parameters": [{ "in": "path", "name": "id", "required": true, "schema": { "type": "integer" } }],
+        "requestBody": { "required": true, "content": { "application/json": { "schema": { "$ref": "#/components/schemas/SetLike" } } } },
+        "responses": { "201": { "description": "Лайк изменён", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/LikeResult" } } } } }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": { "sessionId": { "type": "apiKey", "in": "cookie", "name": "sessionId" } },
+    "schemas": {
+      "CatalogMaterial": {
+        "type": "object", "required": ["id", "name", "imageUrl", "insulationType", "thicknessMm", "likeCount", "isCreator"],
+        "properties": {
+          "id": { "type": "integer" }, "name": { "type": "string" }, "imageUrl": { "type": "string", "nullable": true },
+          "insulationType": { "type": "string", "nullable": true }, "thicknessMm": { "type": "integer", "nullable": true },
+          "likeCount": { "type": "integer" }, "isCreator": { "type": "integer", "enum": [0, 1] },
+          "priceRubM2": { "type": "number", "nullable": true }, "brand": { "type": "string", "nullable": true },
+          "application": { "type": "string", "nullable": true }, "publishedAt": { "type": "string", "nullable": true },
+          "shortDescription": { "type": "string", "nullable": true }, "videoUrl": { "type": "string", "nullable": true }
+        }
+      },
+      "FeedMaterial": {
+        "allOf": [
+          { "$ref": "#/components/schemas/CatalogMaterial" },
+          { "type": "object", "required": ["shortDescription", "videoUrl", "liked"], "properties": {
+            "shortDescription": { "type": "string", "nullable": true }, "videoUrl": { "type": "string", "nullable": true }, "liked": { "type": "integer", "enum": [0, 1] }
+          } }
+        ]
+      },
+      "MaterialDetails": {
+        "allOf": [ { "$ref": "#/components/schemas/FeedMaterial" }, { "type": "object", "properties": { "status": { "type": "string" }, "createdAt": { "type": "string", "format": "date-time" } } } ]
+      },
+      "MaterialListResponse": {
+        "type": "object", "required": ["items", "count"],
+        "properties": { "items": { "type": "array", "items": { "$ref": "#/components/schemas/CatalogMaterial" } }, "count": { "type": "integer" } }
+      },
+      "CreateMaterial": {
+        "type": "object", "required": ["name", "shortDescription", "insulationType", "thicknessMm", "image", "video"],
+        "properties": {
+          "name": { "type": "string" }, "shortDescription": { "type": "string" }, "insulationType": { "type": "string" },
+          "thicknessMm": { "type": "integer" }, "image": { "type": "string", "format": "binary" }, "video": { "type": "string", "format": "binary" }
+        }
+      },
+      "StartDraft": {
+        "type": "object", "required": ["name"],
+        "properties": { "name": { "type": "string" }, "image": { "type": "string", "format": "binary" }, "video": { "type": "string", "format": "binary" } }
+      },
+      "FillDraft": {
+        "type": "object", "required": ["shortDescription", "insulationType", "thicknessMm", "priceRubM2"],
+        "properties": { "shortDescription": { "type": "string" }, "insulationType": { "type": "string" }, "thicknessMm": { "type": "integer" }, "priceRubM2": { "type": "number" }, "brand": { "type": "string" }, "application": { "type": "string" } }
+      },
+      "SetLike": { "type": "object", "required": ["liked"], "properties": { "liked": { "type": "integer", "enum": [0, 1] } } },
+      "LikeResult": { "type": "object", "required": ["id", "liked", "likeCount"], "properties": { "id": { "type": "integer" }, "liked": { "type": "integer", "enum": [0, 1] }, "likeCount": { "type": "integer" } } }
+    }
+  }
+}

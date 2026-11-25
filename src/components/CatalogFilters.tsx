@@ -42,7 +42,7 @@ export function CatalogFilters({
         <Button
           type="submit"
           className="price-apply-button"
-          title="Подобрать товары по цене"
+          title="Подобрать материалы по цене"
         >
           Подобрать
         </Button>

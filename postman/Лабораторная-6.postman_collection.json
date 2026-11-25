@@ -1,0 +1,29 @@
+{
+  "info": {
+    "_postman_id": "f4bc9a93-778c-4d7a-b34d-e94a2e93d006",
+    "name": "Лабораторная 6 — Теплощит",
+    "description": "Для скриншота 10: скопируйте sessionId из DevTools Application → Cookies в ownerSessionId.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    { "key": "baseUrl", "value": "http://127.0.0.1:3001" },
+    { "key": "ownerSessionId", "value": "PASTE_SESSION_ID_FROM_APPLICATION" }
+  ],
+  "item": [{
+    "name": "10 — Плитка услуг с признаком удаления",
+    "event": [{ "listen": "test", "script": { "exec": [
+      "pm.test('Ответ 200', () => pm.response.to.have.status(200));",
+      "const json = pm.response.json();",
+      "pm.test('Есть карточка с isCreator=1', () => pm.expect(json.items.some(item => item.isCreator === 1)).to.equal(true));"
+    ] } }],
+    "request": {
+      "method": "GET",
+      "header": [
+        { "key": "Accept", "value": "application/json" },
+        { "key": "Cookie", "value": "sessionId={{ownerSessionId}}" }
+      ],
+      "url": "{{baseUrl}}/api/insulation-materials"
+    },
+    "protocolProfileBehavior": { "disableCookieJar": true }
+  }]
+}
