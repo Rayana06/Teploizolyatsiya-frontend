@@ -15,6 +15,19 @@ import { materialsMock } from '../data/materials'
 import type { InsulationMaterial } from '../types/material'
 import type { RootState } from './store'
 
+const pagesMock = import.meta.env.VITE_DEPLOY_TARGET === 'pages'
+
+function filteredMock(state: RootState): InsulationMaterial[] {
+  const { applied } = state.filters
+  const search = applied.search.trim().toLocaleLowerCase('ru-RU')
+  return materialsMock.filter((item) =>
+    item.thicknessMm <= applied.maxThicknessMm
+    && item.priceRubM2 <= applied.maxPriceRubM2
+    && (!applied.insulationType || item.insulationType === applied.insulationType)
+    && (!search || item.name.toLocaleLowerCase('ru-RU').includes(search)),
+  )
+}
+
 const fromCatalog = (item: CatalogMaterial): InsulationMaterial => ({
   id: item.id,
   name: item.name,
@@ -61,6 +74,7 @@ export const loadCatalog = createAsyncThunk<
   void,
   { state: RootState; rejectValue: string }
 >('materials/loadCatalog', async (_, { getState, rejectWithValue }) => {
+  if (pagesMock) return { items: filteredMock(getState()), source: 'mock' }
   const { applied } = getState().filters
   try {
     const response = await getInsulationMaterials({
@@ -73,20 +87,14 @@ export const loadCatalog = createAsyncThunk<
     return { items: response.items.map(fromCatalog), source: 'backend' }
   } catch (error) {
     if (getState().auth.user) return rejectWithValue(errorMessage(error))
-    const search = applied.search.trim().toLocaleLowerCase('ru-RU')
-    const items = materialsMock.filter((item) =>
-      item.thicknessMm <= applied.maxThicknessMm
-      && item.priceRubM2 <= applied.maxPriceRubM2
-      && (!applied.insulationType || item.insulationType === applied.insulationType)
-      && (!search || item.name.toLocaleLowerCase('ru-RU').includes(search)),
-    )
-    return { items, source: 'mock' }
+    return { items: filteredMock(getState()), source: 'mock' }
   }
 })
 
 export const loadFirstFeedMaterial = createAsyncThunk<InsulationMaterial, void, { state: RootState; rejectValue: string }>(
   'materials/loadFirstFeedMaterial',
   async (_, { getState, rejectWithValue }) => {
+    if (pagesMock) return materialsMock[0]
     try {
       return fromFeed(await getFirstFeedMaterial({ view: 'rich' }))
     } catch (error) {

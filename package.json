@@ -6,7 +6,9 @@
   "scripts": {
     "dev": "vite --host 0.0.0.0",
     "api:generate": "orval --config orval.config.ts",
-    "build": "tsc -b && vite build",
+    "build": "tsc -b && vite build && node scripts/build-pwa.mjs",
+    "build:pages": "VITE_DEPLOY_TARGET=pages npm run build",
+    "serve:https": "node scripts/https-reverse-proxy.mjs",
     "lint": "eslint .",
     "preview": "vite preview"
   },

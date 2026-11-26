@@ -71,9 +71,9 @@ export function AddMaterialPage() {
       <Form onSubmit={(event) => void start(event)}>
         <Form.Group><Form.Label>Название материала</Form.Label><Form.Control value={name} maxLength={120} onChange={(event) => setName(event.target.value)} required /></Form.Group>
         <Form.Group><Form.Label>Фото</Form.Label><Form.Control type="file" accept="image/*" onChange={(event) => { const file = (event.currentTarget as HTMLInputElement).files?.[0] ?? null; setImage(file); setImagePreviewUrl(file ? URL.createObjectURL(file) : null) }} /></Form.Group>
-        <figure className="image-preview"><img src={imagePreviewUrl ?? '/default-media/default-insulation.jpg'} alt={image ? `Предварительный просмотр: ${image.name}` : 'Изображение по умолчанию'} />{image && <figcaption>Выбрано: {image.name}</figcaption>}</figure>
+        <figure className="image-preview"><img src={imagePreviewUrl ?? `${import.meta.env.BASE_URL}default-media/default-insulation.jpg`} alt={image ? `Предварительный просмотр: ${image.name}` : 'Изображение по умолчанию'} />{image && <figcaption>Выбрано: {image.name}</figcaption>}</figure>
         <Form.Group><Form.Label>Видео</Form.Label><Form.Control type="file" accept="video/*" onChange={(event) => { const file = (event.currentTarget as HTMLInputElement).files?.[0] ?? null; setVideo(file); setVideoPreviewUrl(file ? URL.createObjectURL(file) : null) }} /></Form.Group>
-        <video className="draft-video-preview" controls src={videoPreviewUrl ?? '/default-media/default-insulation.mp4'} />
+        <video className="draft-video-preview" controls src={videoPreviewUrl ?? `${import.meta.env.BASE_URL}default-media/default-insulation.mp4`} />
         {error && <div className="alert alert-danger py-2">{error}</div>}
         <Button type="submit" disabled={pending > 0}>Далее</Button>
       </Form>

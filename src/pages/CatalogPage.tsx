@@ -40,7 +40,7 @@ export function CatalogPage() {
         />
         <div className="catalog-meta">
           <span>Найдено: {catalog.length}</span>
-          <small>{source === 'mock' ? 'mock · backend недоступен' : 'web-service · AJAX'}</small>
+          <small>{source === 'mock' ? (import.meta.env.VITE_DEPLOY_TARGET === 'pages' ? 'mock · офлайн' : 'mock · backend недоступен') : 'web-service · AJAX'}</small>
         </div>
         {error && <div className="alert alert-danger py-2">{error}</div>}
         {catalog.length > 0 ? (

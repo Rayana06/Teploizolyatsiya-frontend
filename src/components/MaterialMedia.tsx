@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 
-const DEFAULT_IMAGE = '/default-media/default-insulation.jpg'
-const DEFAULT_VIDEO = '/default-media/default-insulation.mp4'
+const DEFAULT_IMAGE = `${import.meta.env.BASE_URL}default-media/default-insulation.jpg`
+const DEFAULT_VIDEO = `${import.meta.env.BASE_URL}default-media/default-insulation.mp4`
 const VIDEO_ZOOM_DURATION = 3500
 const VIDEO_START_TRANSFORM = 'translateX(8%) translateY(10%) scale(2.8)'
 const VIDEO_END_TRANSFORM = 'translateX(8%) translateY(11%) scale(2.95)'

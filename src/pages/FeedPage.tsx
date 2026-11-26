@@ -10,7 +10,7 @@ export function FeedPage() {
 
   useEffect(() => { if (!material) void dispatch(loadFirstFeedMaterial()) }, [dispatch, material])
   if (!material) return <main className="feed-page" />
-  const imageSource = material.feedImageUrl ?? material.imageUrl ?? '/default-media/default-insulation.jpg'
+  const imageSource = material.feedImageUrl ?? material.imageUrl ?? `${import.meta.env.BASE_URL}default-media/default-insulation.jpg`
 
   return (
     <main className="feed-page">
